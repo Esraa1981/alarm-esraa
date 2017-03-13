@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+	<title>Alarm</title>
+</head>
+<script type="text/javascript">
+
+//ticing sound global variable
+var audio1 = new Audio('tic.mp3');
+
+//The function that displays current time .
+function Time(){
+	var currentdate = new Date(); 
+	var datetime = "Today is: " + currentdate.getDate() + "/"
+	                + (currentdate.getMonth()+1)  + "/" 
+	                + currentdate.getFullYear()  
+	                + "<br>"+ "The time now is " +
+	                + currentdate.getHours() + ":"  
+	                + currentdate.getMinutes() + ":" 
+	                + currentdate.getSeconds();
+	document.getElementById('digital').innerHTML=datetime;
+	setTimeout(Time, 500);
+}
+ //The function  that compare the current time with the time in the alarm
+function timer(){
+	var rrr= new Date(); 
+	var mm= rrr.getMinutes();
+	var hh=rrr.getHours();
+	var newdate = document.getElementById("set-alaram").value; 
+	var hourmin =" minutes "+ mm + " hours " + hh;
+	var alermHours = newdate.split(":")[0];
+    var alermMinutes = newdate.split(":")[1];
+	//if the alarm match the current time : display ringing sound and pause the ticing sound
+	if(alermHours==hh && alermMinutes==mm){	
+		var audio = new Audio('sound.mp3');
+		audio.play();
+		audio1.pause();
+	}
+}
+
+//when clicking reset you can enter new alarm time
+function reset(){
+	document.getElementById("set-alaram").value=0;
+}
+
+//this function will be fired when setting the alam : intiate the ticing sound and keep comparing the two times until there is a match
+function repeat(){
+	audio1.play();
+	timerid=setInterval(timer, 500);
+	audio1.loop= true;
+}
+</script>
+<!--keep telling me the current time when loading my page-->
+<body onload="Time()">
+<!--current time display div-->
+<div id="digital">
+</div>
+<!--alarm time display div-->
+<div id="alaram">
+<form>
+	Set up your Alarm</br> 
+	<input id="set-alaram" type="time" name="bdaytime">
+	<input id="set" type="button" value="set" onclick="repeat()">
+	<input id="mute" type="button" value="reset" onclick="reset()">
+</form>
+</div>
+</body>
+</html>

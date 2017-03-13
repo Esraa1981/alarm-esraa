@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Rum+Raisin');
+/*styling the background*/
+body
+{
+	margin: 0 auto;
+	background-image: url("bg.jpg");
+	background-size: cover;
+	background-repeat:no-repeat;
+    background-position: 0px -50px;
+	
+}
+/*styling the current time display*/
+#digital {
+
+	position: absolute;
+	height: 100px;
+	width: 400px;
+	background: #6AABAF;
+	top: 100px;
+	left: 800px;
+	padding: 10px;
+	font-size:30px;
+	outline: solid 10px #232625;
+	border: solid 10px 	#827A78;
+	font-family: 'Rum Raisin', sans-serif;
+	color: white;
+}
+/*styling the alarm display*/
+#alaram {
+	
+	position: absolute;
+	height: 100px;
+	width: 400px;
+	background: #6AABAF;
+	top: 350px;
+	left: 800px;
+	padding: 10px;
+	font-size:30px;
+	outline: solid 10px #232625;
+	border: solid 10px 	#827A78;
+	font-family: 'Rum Raisin', sans-serif;
+	color: white;
+}
+
+/*styling the alram input box*/
+#set-alaram
+{
+	font-size:20px;
+
+}
+
+/*styling the set  , reset button*/
+#set , #mute
+{
+font-size: 30px;
+height: 50px;
+width: 100px;
+padding: 10px;
+}
